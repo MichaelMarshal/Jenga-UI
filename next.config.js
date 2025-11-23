@@ -1,24 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  experimental: {
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
+  output: 'export',
+  basePath: '/Jenga-UI',
+  images: {
+    unoptimized: true,
   },
   eslint: {
     dirs: ['src'],
   },
   typescript: {
     ignoreBuildErrors: false,
-  },
-  images: {
-    unoptimized: true,
   },
 }
 

@@ -1,0 +1,354 @@
+{
+  "user": {
+    "id": "user_123",
+    "name": "Alex Johnson",
+    "email": "alex@company.com",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    "plan": "Pro",
+    "usage": {
+      "tokens_used": 45000,
+      "tokens_limit": 100000,
+      "api_calls": 1250,
+      "api_limit": 5000
+    }
+  },
+  "aiModels": [
+    {
+      "id": "model_1",
+      "name": "GPT-4 Turbo",
+      "provider": "OpenAI",
+      "type": "hosted",
+      "status": "active",
+      "config": {
+        "api_key": "sk-proj-***",
+        "endpoint": "https://api.openai.com/v1",
+        "max_tokens": 4096,
+        "temperature": 0.7
+      },
+      "usage": {
+        "requests_today": 45,
+        "tokens_today": 12000
+      }
+    },
+    {
+      "id": "model_2", 
+      "name": "Claude 3.5 Sonnet",
+      "provider": "Anthropic",
+      "type": "hosted",
+      "status": "active",
+      "config": {
+        "api_key": "sk-ant-***",
+        "endpoint": "https://api.anthropic.com",
+        "max_tokens": 4096,
+        "temperature": 0.7
+      },
+      "usage": {
+        "requests_today": 23,
+        "tokens_today": 8500
+      }
+    },
+    {
+      "id": "model_3",
+      "name": "Llama 3.1 405B",
+      "provider": "Meta",
+      "type": "self-hosted",
+      "status": "active",
+      "config": {
+        "endpoint": "http://localhost:8080/v1",
+        "model_name": "llama-3.1-405b-instruct",
+        "max_tokens": 2048,
+        "temperature": 0.6
+      },
+      "usage": {
+        "requests_today": 8,
+        "tokens_today": 3500
+      }
+    },
+    {
+      "id": "model_4",
+      "name": "Custom LLaMA",
+      "provider": "Custom",
+      "type": "self-hosted",
+      "status": "connected",
+      "config": {
+        "endpoint": "https://my-llama.company.com/v1",
+        "auth_token": "bearer_***",
+        "max_tokens": 2048,
+        "temperature": 0.5
+      },
+      "usage": {
+        "requests_today": 12,
+        "tokens_today": 3200
+      }
+    }
+  ],
+  "knowledgeBases": [
+    {
+      "id": "kb_1",
+      "name": "Financial Reports",
+      "description": "Q1-Q4 financial reports, projections, and analysis",
+      "files": 15,
+      "size": "2.3 MB",
+      "status": "processed",
+      "created": "2024-11-15T10:30:00Z",
+      "lastUpdated": "2024-11-18T14:20:00Z",
+      "categories": ["financial", "reports"],
+      "fileTypes": ["pdf", "xlsx", "csv"]
+    },
+    {
+      "id": "kb_2",
+      "name": "Market Data",
+      "description": "Market research reports and demographic analysis",
+      "files": 28,
+      "size": "5.7 MB", 
+      "status": "processed",
+      "created": "2024-11-18T09:15:00Z",
+      "categories": ["market", "research"],
+      "fileTypes": ["pdf", "docx", "json"]
+    },
+    {
+      "id": "kb_3",
+      "name": "Legal & Compliance",
+      "description": "Legal documents and compliance guidelines",
+      "files": 12,
+      "size": "1.8 MB",
+      "status": "processed",
+      "created": "2024-11-10T16:45:00Z",
+      "categories": ["legal", "compliance"],
+      "fileTypes": ["pdf", "docx"]
+    }
+  ],
+  "chatSessions": {
+    "chat_1": {
+      "id": "chat_1",
+      "title": "Q1 Financial Analysis",
+      "model": "GPT-4 Turbo",
+      "knowledgeBase": "Financial Reports",
+      "created": "2024-11-18T09:15:00Z",
+      "lastMessage": "Based on the Q1 2025 financial reports, here are the key projections...",
+      "messageCount": 8,
+      "isBookmarked": true,
+      "messages": [
+        {
+          "id": "msg_1_1",
+          "role": "user",
+          "content": "What are our Q1 2025 financial projections based on the latest reports?",
+          "timestamp": "2024-11-18T09:15:00Z"
+        },
+        {
+          "id": "msg_1_2",
+          "role": "assistant",
+          "content": "Based on the Q1 2025 financial reports, here are the key projections:\n\n**Revenue Targets:**\n- Total projected revenue: $2.4M (18% increase YoY)\n- Product sales: $1.8M\n- Service revenue: $600K\n\n**Cost Structure:**\n- COGS: 45% of revenue\n- Operating expenses: $850K\n- Marketing spend: $200K\n\n**Key Metrics:**\n- Gross margin: 55%\n- Net profit margin: 12%\n- Cash flow: Positive $180K\n\nThe projections show strong growth potential with controlled costs.",
+          "timestamp": "2024-11-18T09:16:00Z",
+          "sources": [
+            {
+              "file": "Q1_2025_Financial_Forecast.pdf",
+              "page": 2,
+              "relevance": 0.92
+            }
+          ]
+        }
+      ]
+    },
+    "chat_2": {
+      "id": "chat_2",
+      "title": "Market Research Deep Dive",
+      "model": "Claude 3.5 Sonnet", 
+      "knowledgeBase": "Market Data",
+      "created": "2024-11-17T16:45:00Z",
+      "lastMessage": "Market research analysis shows 68% prefer mobile-first solutions...",
+      "messageCount": 6,
+      "isBookmarked": false,
+      "messages": [
+        {
+          "id": "msg_2_1",
+          "role": "user", 
+          "content": "Analyze the latest market research data for our target demographics",
+          "timestamp": "2024-11-17T16:45:00Z"
+        },
+        {
+          "id": "msg_2_2",
+          "role": "assistant",
+          "content": "Market research analysis for target demographics:\n\n**Primary Segment (Ages 25-40):**\n- 68% prefer mobile-first solutions\n- Average spending: $1,200 annually\n- Key pain points: Time efficiency, cost optimization\n\n**Secondary Segment (Ages 40-55):**\n- 45% adoption of new technologies\n- Higher lifetime value: $2,800\n- Preference for comprehensive support\n\n**Market Trends:**\n- 23% growth in digital adoption\n- Increased demand for integrated platforms\n- Sustainability becomes key factor (34% consideration)\n\nRecommend focusing on mobile experience and integrated workflows.",
+          "timestamp": "2024-11-17T16:47:00Z",
+          "sources": [
+            {
+              "file": "Market_Research_Report_2024.pdf",
+              "page": 15,
+              "relevance": 0.88
+            }
+          ]
+        }
+      ]
+    },
+    "chat_3": {
+      "id": "chat_3",
+      "title": "Compliance Review & Updates",
+      "model": "Custom LLaMA",
+      "knowledgeBase": "Legal & Compliance",
+      "created": "2024-11-17T11:00:00Z", 
+      "lastMessage": "Current compliance status is 85% with vendor assessments pending...",
+      "messageCount": 4,
+      "isBookmarked": true,
+      "messages": [
+        {
+          "id": "msg_3_1", 
+          "role": "user",
+          "content": "Review our compliance status for the new data protection regulations",
+          "timestamp": "2024-11-17T11:00:00Z"
+        },
+        {
+          "id": "msg_3_2",
+          "role": "assistant",
+          "content": "Compliance Status Review:\n\n**Current Status: 85% Compliant**\n\n**Completed Requirements:**\n✅ Data encryption at rest and in transit\n✅ User consent management system\n✅ Privacy policy updates\n✅ Staff training completed\n\n**Outstanding Items:**\n⚠️ Data retention policy automation\n⚠️ Third-party vendor assessments\n⚠️ Incident response procedure updates\n\n**Risk Assessment:**\n- High priority: Vendor assessments (30 days)\n- Medium priority: Retention automation (60 days)\n- Low priority: Procedure updates (90 days)\n\nRecommend immediate focus on vendor compliance verification.",
+          "timestamp": "2024-11-17T11:02:00Z",
+          "sources": [
+            {
+              "file": "Compliance_Audit_2024.pdf", 
+              "page": 8,
+              "relevance": 0.94
+            }
+          ]
+        }
+      ]
+    },
+    "chat_4": {
+      "id": "chat_4",
+      "title": "Customer Feedback Analysis",
+      "model": "GPT-4 Turbo",
+      "knowledgeBase": "Market Data",
+      "created": "2024-11-16T13:20:00Z",
+      "lastMessage": "Customer satisfaction scores show 87% positive sentiment...",
+      "messageCount": 12,
+      "isBookmarked": false,
+      "messages": [
+        {
+          "id": "msg_4_1",
+          "role": "user",
+          "content": "Analyze our latest customer feedback and satisfaction scores",
+          "timestamp": "2024-11-16T13:20:00Z"
+        },
+        {
+          "id": "msg_4_2",
+          "role": "assistant",
+          "content": "Customer Feedback Analysis:\n\n**Overall Satisfaction: 87%** (Up 5% from last quarter)\n\n**Positive Highlights:**\n- Product quality: 91% satisfaction\n- Customer service: 89% satisfaction\n- Delivery speed: 85% satisfaction\n\n**Areas for Improvement:**\n- Mobile app experience: 72% satisfaction\n- Pricing transparency: 76% satisfaction\n- Technical support response time: 74% satisfaction\n\n**Key Insights:**\n- Premium customers show 15% higher satisfaction\n- Mobile users report 20% more issues\n- Support ticket volume increased 30%\n\nRecommend investing in mobile app improvements and expanding technical support team.",
+          "timestamp": "2024-11-16T13:22:00Z"
+        }
+      ]
+    }
+  },
+  "currentChat": {
+    "id": "chat_1",
+    "messages": [
+      {
+        "id": "msg_1_1",
+        "role": "user",
+        "content": "What are our Q1 2025 financial projections based on the latest reports?",
+        "timestamp": "2024-11-18T09:15:00Z"
+      },
+      {
+        "id": "msg_1_2",
+        "role": "assistant",
+        "content": "Based on the Q1 2025 financial reports, here are the key projections:\n\n**Revenue Targets:**\n- Total projected revenue: $2.4M (18% increase YoY)\n- Product sales: $1.8M\n- Service revenue: $600K\n\n**Cost Structure:**\n- COGS: 45% of revenue\n- Operating expenses: $850K\n- Marketing spend: $200K\n\n**Key Metrics:**\n- Gross margin: 55%\n- Net profit margin: 12%\n- Cash flow: Positive $180K\n\nThe projections show strong growth potential with controlled costs.",
+        "timestamp": "2024-11-18T09:16:00Z",
+        "sources": [
+          {
+            "file": "Q1_2025_Financial_Forecast.pdf",
+            "page": 2,
+            "relevance": 0.92
+          }
+        ]
+      }
+    ]
+  },
+  "recentChats": [
+    {
+      "id": "chat_1",
+      "title": "Q1 Financial Analysis",
+      "model": "GPT-4 Turbo",
+      "knowledgeBase": "Financial Reports",
+      "created": "2024-11-18T09:15:00Z",
+      "lastMessage": "2024-11-18T10:30:00Z",
+      "messageCount": 8,
+      "isBookmarked": true
+    },
+    {
+      "id": "chat_2", 
+      "title": "Market Research Deep Dive",
+      "model": "Claude 3.5 Sonnet",
+      "knowledgeBase": "Market Data",
+      "created": "2024-11-17T16:45:00Z",
+      "lastMessage": "2024-11-17T17:20:00Z", 
+      "messageCount": 6,
+      "isBookmarked": false
+    },
+    {
+      "id": "chat_3",
+      "title": "Compliance Review & Updates",
+      "model": "Custom LLaMA",
+      "knowledgeBase": "Legal & Compliance",
+      "created": "2024-11-17T11:00:00Z",
+      "lastMessage": "2024-11-17T14:15:00Z",
+      "messageCount": 4,
+      "isBookmarked": true
+    },
+    {
+      "id": "chat_4",
+      "title": "Customer Feedback Analysis",
+      "model": "GPT-4 Turbo",
+      "knowledgeBase": "Market Data",
+      "created": "2024-11-16T13:20:00Z",
+      "lastMessage": "2024-11-16T15:45:00Z",
+      "messageCount": 12,
+      "isBookmarked": false
+    }
+  ],
+  "mcpConnections": [
+    {
+      "id": "mcp_1",
+      "name": "Finance Data Server",
+      "description": "Real-time financial data and analytics",
+      "status": "connected",
+      "type": "financial",
+      "endpoint": "mcp://finance.company.com:8080",
+      "lastSync": "2024-11-18T10:30:00Z"
+    },
+    {
+      "id": "mcp_2", 
+      "name": "Customer CRM Server",
+      "description": "Customer relationship management data",
+      "status": "connected",
+      "type": "crm",
+      "endpoint": "mcp://crm.company.com:8081",
+      "lastSync": "2024-11-18T09:45:00Z"
+    }
+  ],
+  "apiIntegrations": [
+    {
+      "id": "api_1",
+      "name": "Slack Integration",
+      "description": "Team communication and notifications",
+      "status": "active",
+      "type": "communication",
+      "endpoint": "https://hooks.slack.com/services/***",
+      "rateLimit": {
+        "requests": 1000,
+        "used": 245,
+        "window": "hour"
+      }
+    },
+    {
+      "id": "api_2",
+      "name": "Google Drive",
+      "description": "Document storage and collaboration", 
+      "status": "active",
+      "type": "storage",
+      "endpoint": "https://www.googleapis.com/drive/v3",
+      "rateLimit": {
+        "requests": 10000,
+        "used": 1250,
+        "window": "day"
+      }
+    }
+  ]
+}
